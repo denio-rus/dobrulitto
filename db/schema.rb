@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_19_191309) do
+ActiveRecord::Schema.define(version: 2019_08_28_053420) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,27 @@ ActiveRecord::Schema.define(version: 2019_07_19_191309) do
     t.index ["title"], name: "index_albums_on_title"
   end
 
+  create_table "courses", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.bigint "discipline_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discipline_id"], name: "index_courses_on_discipline_id"
+  end
+
+  create_table "disciplines", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "genres", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "sketches", force: :cascade do |t|
     t.string "title", null: false
     t.text "description"
@@ -65,21 +86,16 @@ ActiveRecord::Schema.define(version: 2019_07_19_191309) do
     t.date "date", null: false
     t.integer "height"
     t.integer "width"
-    t.bigint "wc_genre_id"
+    t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["date"], name: "index_watercolors_on_date"
+    t.index ["genre_id"], name: "index_watercolors_on_genre_id"
     t.index ["title"], name: "index_watercolors_on_title"
-    t.index ["wc_genre_id"], name: "index_watercolors_on_wc_genre_id"
-  end
-
-  create_table "wc_genres", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "courses", "disciplines"
   add_foreign_key "sketches", "albums"
-  add_foreign_key "watercolors", "wc_genres"
+  add_foreign_key "watercolors", "genres"
 end

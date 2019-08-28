@@ -36,6 +36,6 @@ class WatercolorsController < ApplicationController
   helper_method :watercolor
 
   def watercolor_params
-    params.require(:watercolor).permit(:title, :description, :date, :wc_genre_id, :width, :height, :picture)
+    params.require(:watercolor).permit(:title, :description, :date, :genre_id, :width, :height, :picture)
   end
 end

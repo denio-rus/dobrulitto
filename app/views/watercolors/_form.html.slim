@@ -16,9 +16,9 @@
       = f.file_field :picture, id: :watercolor_picture
       br
 
-      = f.label :wc_genre_id, 'Genre'
+      = f.label :genre_id, 'Genre'
       br
-      = f.collection_select :wc_genre_id, WcGenre.all, :id, :title, prompt: true
+      = f.collection_select :genre_id, WcGenre.all, :id, :title, prompt: true
       br
 
       = f.label :date

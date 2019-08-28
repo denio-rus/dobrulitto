@@ -1,5 +1,5 @@
 class Watercolor < ApplicationRecord
-  belongs_to :wc_genre
+  belongs_to :genre
 
   validates :title, :description, presence: true
 
