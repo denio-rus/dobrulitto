@@ -1,5 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe UsedMaterial, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should belong_to(:sketch) }
+  it { should belong_to(:material) }
 end

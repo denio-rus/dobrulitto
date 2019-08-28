@@ -1,5 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe Material, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it { should have_many(:used_materials).dependent(:destroy) }
+  it { should have_many(:sketches).through(:used_materials) }
+
+  it { should validate_presence_of(:title) }
 end
