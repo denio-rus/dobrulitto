@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :course do
-    title { "MyString" }
-    description { "MyText" }
-    discipline { nil }
+    sequence(:title) { |n| "Course-#{n}" }
+    description { "Some Description" }
+    discipline 
   end
 end
