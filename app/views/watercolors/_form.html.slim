@@ -1,0 +1,39 @@
+= form_with model: watercolor, local: true do |f|
+  .form-group
+    p
+      = f.label :title
+      br
+      = f.text_field :title, id: :watercolor_title, placeholder: 'Input title'
+      br
+
+      = f.label :description
+      br
+      = f.text_area :description, id: :watercolor_description, placeholder: 'Input description', cols: 100, rows: 5
+      br
+
+      = f.label :picture
+      br
+      = f.file_field :picture, id: :watercolor_picture
+      br
+
+      = f.label :wc_genre_id, 'Genre'
+      br
+      = f.collection_select :wc_genre_id, WcGenre.all, :id, :title, prompt: true
+      br
+
+      = f.label :date
+      br
+      = f.date_field :date, id: :watercolor_date
+      br
+
+      = f.label :height
+      br
+      = f.number_field :height, id: :watercolor_height, min: 0, placeholder: "Enter height"
+      br
+
+      = f.label :width
+      br
+      = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width"
+      br
+
+      = f.submit

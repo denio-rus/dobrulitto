@@ -1,0 +1,2 @@
+module WatercolorsHelper
+end
