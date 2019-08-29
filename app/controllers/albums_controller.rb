@@ -4,6 +4,12 @@ class AlbumsController < ApplicationController
   end
 
   def create
+    @album = Album.new(album_params)
+    if @album.save
+      redirect_to albums_path, notice: "New album '#{@album.title}' added successfully"
+    else 
+      render :new
+    end
   end
 
   def new; end

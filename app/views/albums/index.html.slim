@@ -1,0 +1,9 @@
+.card
+  .card-header
+    h1 Albums:
+  .card-body
+    table.table
+      = render @albums
+
+    .new-album
+      h3= link_to "Add new album", new_album_path
