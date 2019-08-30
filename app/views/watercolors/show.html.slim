@@ -1,0 +1,27 @@
+.card
+  .card-image-top
+    =image_tag watercolor.picture, alt: "picture '#{watercolor.title}'"
+  .card-body
+    .card-title
+      h3= watercolor.title
+    .card-text
+      p= watercolor.genre.title
+      p 
+        | year:  
+        = watercolor.year
+      p= watercolor.description
+      p 
+        | height:  
+        = watercolor.height
+      p 
+        | width:  
+        = watercolor.width
+      p 
+        | materials:  
+        = used_materials_list(watercolor)
+  .card-footer
+    .btn-group role="group"
+      = link_to 'Back to index', watercolors_path, class: 'btn btn-secondary'
+      = link_to "Edit watercolor info", edit_watercolor_path(watercolor), class: 'btn btn-success'
+      = link_to 'Delete this watercolor', watercolor, method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }
+      

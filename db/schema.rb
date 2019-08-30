@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_28_073719) do
+ActiveRecord::Schema.define(version: 2019_08_30_133140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -95,25 +95,25 @@ ActiveRecord::Schema.define(version: 2019_08_28_073719) do
     t.index ["album_id"], name: "index_sketches_on_album_id"
   end
 
-  create_table "used_materials", force: :cascade do |t|
+  create_table "specifications", force: :cascade do |t|
     t.bigint "material_id"
-    t.bigint "sketch_id"
+    t.string "specificable_type"
+    t.bigint "specificable_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["material_id"], name: "index_used_materials_on_material_id"
-    t.index ["sketch_id"], name: "index_used_materials_on_sketch_id"
+    t.index ["material_id"], name: "index_specifications_on_material_id"
+    t.index ["specificable_type", "specificable_id"], name: "index_specifications_on_specificable_type_and_specificable_id"
   end
 
   create_table "watercolors", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.date "date", null: false
     t.integer "height"
     t.integer "width"
     t.bigint "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["date"], name: "index_watercolors_on_date"
+    t.integer "year", default: 2019, null: false
     t.index ["genre_id"], name: "index_watercolors_on_genre_id"
     t.index ["title"], name: "index_watercolors_on_title"
   end
@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(version: 2019_08_28_073719) do
   add_foreign_key "courses", "disciplines"
   add_foreign_key "lessons", "courses"
   add_foreign_key "sketches", "albums"
-  add_foreign_key "used_materials", "materials"
-  add_foreign_key "used_materials", "sketches"
+  add_foreign_key "specifications", "materials"
   add_foreign_key "watercolors", "genres"
 end

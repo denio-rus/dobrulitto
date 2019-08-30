@@ -2,38 +2,24 @@
   .form-group
     p
       = f.label :title
-      br
-      = f.text_field :title, id: :watercolor_title, placeholder: 'Input title'
-      br
-
+      = f.text_field :title, id: :watercolor_title, placeholder: 'Input title', class: 'form-control'
       = f.label :description
-      br
-      = f.text_area :description, id: :watercolor_description, placeholder: 'Input description', cols: 100, rows: 5
-      br
-
+      = f.text_area :description, id: :watercolor_description, placeholder: 'Input description', cols: 100, rows: 5, class: 'form-control'
       = f.label :picture
-      br
-      = f.file_field :picture, id: :watercolor_picture
-      br
-
+      = f.file_field :picture, id: :watercolor_picture, class: 'form-control'
       = f.label :genre_id, 'Genre'
+      = f.collection_select :genre_id, Genre.all, :id, :title, prompt: true
       br
-      = f.collection_select :genre_id, WcGenre.all, :id, :title, prompt: true
-      br
-
-      = f.label :date
-      br
-      = f.date_field :date, id: :watercolor_date
-      br
-
+      = f.label :year
+      = f.number_field :year, id: :watercolor_year, min: 2000, max: Time.now.year ,class: 'form-control'
       = f.label :height
-      br
-      = f.number_field :height, id: :watercolor_height, min: 0, placeholder: "Enter height"
-      br
-
+      = f.number_field :height, id: :watercolor_height, min: 0, placeholder: "Enter height", class: 'form-control'
       = f.label :width
-      br
-      = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width"
-      br
-
+      = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width", class: 'form-control'
+      hr
+      =f.fields_for :specifications do |s|
+        =s.label :material_id, "material"
+        =s.collection_select :material_id, Material.all, :id, :title, prompt: true
+        .links
+        /  = link_to_add_association 'Add material', f, :links, partial: 'shared/link_fields'
       = f.submit
