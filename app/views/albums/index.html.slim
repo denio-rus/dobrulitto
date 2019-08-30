@@ -1,9 +1,17 @@
 .card
-  .card-header
+  .card-header.text-center
     h1 Albums:
   .card-body
-    table.table
-      = render @albums
+    table.table.table-striped.table-sm.text-center
+      .thead
+        tr
+          th title
+          th number of sketches
+          th began at
+          th ended at
+          th actions
+      .tbody
+        = render @albums
 
     .new-album
-      h3= link_to "Add new album", new_album_path
+      h3= link_to image_tag('plus_sm.png'), new_album_path, title: "Add new album"

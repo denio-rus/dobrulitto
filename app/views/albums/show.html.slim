@@ -1,2 +1,31 @@
-<h1>Albums#show</h1>
-<p>Find me in app/views/albums/show.html.erb</p>
+.card
+  .card-header
+    h1 album "#{album.title}"
+  .card-body
+    .album-info
+      p
+        strong
+          | description:  
+        = album.description
+      p 
+        strong
+          | began at:  
+        = album.began_at
+      p 
+        strong
+          | ended at:   
+        = album.ended_at
+    hr
+    .sketches
+      h3 managing sketches:
+
+      table.table.table-sm
+        thead
+        tbody
+          =render @sketches, partial: 'sketches/sketch' if @sketches.any?
+      
+      p= link_to image_tag("plus_sm.png") , new_album_sketch_path(album), title: 'Add new sketch'
+
+
+  .card-footer
+    = link_to  "back to the albums list", albums_path

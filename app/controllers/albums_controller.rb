@@ -15,15 +15,23 @@ class AlbumsController < ApplicationController
   def new; end
 
   def update
+    if album.update_attributes(album_params)
+      redirect_to albums_path, notice: "The album '#{@album.title}' edited successfully"
+    else
+      flash.now.alert = 'Uncorrect edition!'
+      render :new
+    end
   end
 
   def destroy
-    @album.destroy
+    album.destroy
   end
 
   def edit; end
 
-  def show; end
+  def show
+    @sketches = album.sketches
+  end
 
   private
 

@@ -1,10 +1,10 @@
-tr 
+tr.[class="album-#{album.id}"]
   td= album.title
   td= album.sketches.count
   td= album.began_at
   td= album.ended_at
   td  
     .btn-group role="group"
-      = link_to 'show', album_path(album), class: "btn btn-primary"
+      = link_to 'managing sketches', album_path(album), class: "btn btn-primary"
       = link_to  'edit', edit_album_path(album), class: "btn btn-success"
-      = link_to 'delete', album_path(album), class: "btn btn-danger"
+      = link_to 'delete', album_path(album), method: :delete, class: "btn btn-danger", remote: true, data: { confirm: 'Are you sure?' }

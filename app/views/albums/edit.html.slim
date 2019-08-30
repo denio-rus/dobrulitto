@@ -1,2 +1,8 @@
-<h1>Albums#edit</h1>
-<p>Find me in app/views/albums/edit.html.erb</p>
+.card
+  .card-header
+    h1 Edit album "#{album.title}"
+  .card-body
+    =render 'form'
+
+  .card-footer
+    = link_to  "back to the albums list", albums_path
