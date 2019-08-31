@@ -1,20 +1,21 @@
-.card
-  .card-header.text-center
-    h1 Genres of watercolors
+.row.justify-content-center
+  .card.col-sm-8
+    .card-header.text-center
+      h1 Genres of watercolors
 
-  .card-body
-    .errors
-      p= render 'shared/errors', resource: @genre
+    .card-body
+      .errors
+        p= render 'shared/errors', resource: @genre
 
-    table.table.table-hover.text-center
-      = render @genres
+      table.table.table-hover
+        = render @genres
 
-    hr
+      hr
 
-    .new-genre
-      h3 add new genre
-
-      =form_with model: Genre.new, method: :post, local: true do |f|
-        =f.label :title, "name"
-        =f.text_field :title
-        =f.submit
+      .new-genre
+        =form_with model: Genre.new, method: :post, local: true do |f|
+          .input-group
+            .input-group-prepend
+              span.input-group-text id="inputGroup-sizing-default" a new genre:
+            =f.text_field :title, class: 'form-control'
+            =f.submit 'add', class: 'btn btn-primary', role: 'button'

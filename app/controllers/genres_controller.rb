@@ -1,6 +1,6 @@
 class GenresController < ApplicationController
   before_action :find_genre, except: [:index, :create]
-  before_action :set_tests
+  before_action :set_genres
 
   def index
     @genre = Genre.new
@@ -27,7 +27,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-    render :index
+    redirect_to genres_path, alert: "Genre '#{@genre.title}' was deleted"
   end
 
   private
@@ -40,7 +40,7 @@ class GenresController < ApplicationController
     @genre = Genre.find(params[:id])
   end
 
-  def set_tests
+  def set_genres
     @genres = Genre.all
   end
 end

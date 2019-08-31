@@ -1,8 +1,8 @@
 tr
   td
     = content_tag :span, material.title, class: 'title', data: { resource_id: material.id }
-    = render 'form_inline', material: material == @material ? @material : material
-  td
+    = render 'shared/form_inline', resource: material == @material ? @material : material
+  td.text-right
     .btn-group role="group"
       = link_to "edit", '#', class: 'form-inline-link btn btn-success', data: { resource_id: material.id }
-      = link_to "delete", material_path(material), method: :delete, class: 'btn btn-danger'
+      = link_to "delete", material_path(material), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }

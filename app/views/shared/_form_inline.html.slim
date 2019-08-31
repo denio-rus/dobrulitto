@@ -1,0 +1,6 @@
+= form_with model: resource, local: true, class: 'form-inline hide', data: { resource_id: resource.id } do |f|
+  .input-group
+    .input-group-prepend
+      span.input-group-text id="inputGroup-sizing-default" #{resource.class.name}: 
+    =f.text_field :title, class: 'form-control'
+    =f.submit 'rename', class: 'btn btn-secondary', role: 'button'

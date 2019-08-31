@@ -1,22 +1,20 @@
-.card
-  .card-header.text-center
-    h1 Materials:
-  .card-body
-    = render 'shared/errors', resource: @material
-    
-    table.table
-      thead.table-dark
-        th title 
-        th actions
-      tbody
-        = render @materials if @materials.any?
+.row.justify-content-center
+  .card.col-sm-8
+    .card-header.text-center
+      h1 Materials
+    .card-body
+      = render 'shared/errors', resource: @material
+      
+      table.table.table-hover
+        tbody
+          = render @materials if @materials.any?
 
-    hr
-    .new-material
-      =form_with model: Material.new, local: true do |f|
-        .input-group
-          .input-group-prepend
-            span.input-group-text id="inputGroup-sizing-default" Add a new material:
-          =f.text_field :title,class: 'form-control'
-          =f.submit class: 'btn btn-primary', role: 'button'
+      hr
+      .new-material
+        =form_with model: Material.new, local: true do |f|
+          .input-group
+            .input-group-prepend
+              span.input-group-text id="inputGroup-sizing-default" a new material:
+            =f.text_field :title, class: 'form-control'
+            =f.submit 'add', class: 'btn btn-primary', role: 'button'
   

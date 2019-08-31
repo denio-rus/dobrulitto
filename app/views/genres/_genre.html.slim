@@ -1,8 +1,8 @@
 tr
   td
     = content_tag :span, genre.title, class: 'title', data: { resource_id: genre.id }
-    = render 'form_inline', genre: genre == @genre ? @genre : genre
-  td
+    = render 'shared/form_inline', resource: genre == @genre ? @genre : genre
+  td.text-right
     .btn-group role="group"
       = link_to "edit", '#', class: 'form-inline-link btn btn-success', data: { resource_id: genre.id }
       = link_to "delete", genre_path(genre), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' }

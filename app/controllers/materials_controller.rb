@@ -7,8 +7,7 @@ class MaterialsController < ApplicationController
   def create
     @material = Material.new(material_params)
     if @material.save
-      flash.now[:notice] = "Material '#{@material.title}' successfully created"
-      redirect_to materials_path
+      redirect_to materials_path, notice: "Material '#{@material.title}' successfully created"
     else
       flash.now[:alert] = "Something went wrong, object was NOT created"
       render :index
@@ -17,8 +16,7 @@ class MaterialsController < ApplicationController
   
   def update
     if @material.update_attributes(material_params)
-      flash.now[:notice] = "Object was successfully updated"
-      redirect_to materials_path
+      redirect_to materials_path, notice: "Object was successfully updated"
     else
       flash.now[:alert] = "Something went wrong, object was NOT updated"
       render :index
@@ -27,7 +25,7 @@ class MaterialsController < ApplicationController
   
   def destroy
     @material.destroy
-    redirect_to materials_path
+    redirect_to materials_path, alert: "Material '#{@material.title}' was deleted"
   end
 
   private
