@@ -1,6 +1,6 @@
 class Material < ApplicationRecord
-  has_many :used_materials, dependent: :destroy  
-  has_many :sketches, through: :used_materials
+  has_many :specifications, dependent: :destroy  
+  has_many :specificables, through: :specifications
 
-  validates  :title, presence: true
+  validates  :title, presence: true, uniqueness: true
 end

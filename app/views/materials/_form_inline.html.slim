@@ -1,0 +1,4 @@
+= form_with model: material, local: true, class: 'form-inline hide', data: { resource_id: material.id } do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.submit class: 'btn btn-secondary'

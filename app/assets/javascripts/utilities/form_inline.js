@@ -16,21 +16,21 @@ document.addEventListener('turbolinks:load', function() {
 
 function formInlineLinkHandler(event) {
   event.preventDefault();
-  var genreId = this.dataset.genreId;
-  formInlineHandler(genreId);
+  var resourceId = this.dataset.resourceId;
+  formInlineHandler(resourceId);
 };
 
-function formInlineHandler(genreId) {
-  var link = document.querySelector('.form-inline-link[data-genre-id="' + genreId + '"]');
-  var genreTitle = document.querySelector('.genre-title[data-genre-id="' + genreId + '"]');
-  var formInline = document.querySelector('.form-inline[data-genre-id="' + genreId + '"]');
+function formInlineHandler(resourceId) {
+  var link = document.querySelector('.form-inline-link[data-resource-id="' + resourceId + '"]');
+  var resourceTitle = document.querySelector('.title[data-resource-id="' + resourceId + '"]');
+  var formInline = document.querySelector('.form-inline[data-resource-id="' + resourceId + '"]');
 
   if (formInline.classList.contains('hide')) {
-    genreTitle.classList.add('hide');
+    resourceTitle.classList.add('hide');
     formInline.classList.remove('hide');
     link.textContent = 'cancel'
   } else {
-    genreTitle.classList.remove('hide');
+    resourceTitle.classList.remove('hide');
     formInline.classList.add('hide');
     link.textContent = 'edit'
   }

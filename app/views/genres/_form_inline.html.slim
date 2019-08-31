@@ -1,3 +1,3 @@
-=form_with model: genre, method: :patch, local: true, class: 'form-inline hide', data: { genre_id: genre.id } do |f|
+=form_with model: genre, local: true, class: 'form-inline hide', data: { resource_id: genre.id } do |f|
   =f.text_field :title, class: 'form-control mr-2'
   =f.submit class: 'btn btn-secondary'

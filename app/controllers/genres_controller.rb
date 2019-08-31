@@ -7,13 +7,22 @@ class GenresController < ApplicationController
   end
 
   def create
-    @genre = Genre.create(genre_params)
-    render :index
+    @genre = Genre.new(genre_params)
+    if @genre.save
+      redirect_to genres_path, notice: "New genre '#{@genre.title}' was created"
+    else 
+      flash.now[:alert] = "Genre was NOT created. Got errors!"
+      render :index
+    end
   end
 
   def update
-    @genre.update(genre_params)
-    render :index
+    if @genre.update(genre_params)
+      redirect_to genres_path, notice: "Genre was updated"
+    else
+      flash.now[:alert] = "Genre was NOT updated"
+      render :index
+    end
   end
 
   def destroy
