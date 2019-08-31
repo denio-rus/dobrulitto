@@ -1,0 +1,24 @@
+= form_with model: [@album, sketch], local: true do |f|
+  =render 'shared/errors', resource: sketch
+  .form-group
+    p
+      = f.label :title
+      = f.text_field :title, id: :sketch_title, placeholder: 'Input title', class: 'form-control'
+      = f.label :description
+      = f.text_area :description, id: :sketch_description, placeholder: 'Input description', cols: 100, rows: 5, class: 'form-control'
+      = f.label :picture
+      = f.file_field :picture, id: :sketch_picture, class: 'form-control'
+      br
+      = f.label :date
+      = f.date_field :date, id: :sketch_date, class: 'form-control'
+      = f.label :height
+      = f.number_field :height, id: :sketch_height, min: 0, placeholder: "Enter height", class: 'form-control'
+      = f.label :width
+      = f.number_field :width, id: :sketch_width, min: 0, placeholder: "Enter width", class: 'form-control'
+      hr
+      = f.fields_for :specifications do |spec|
+        = render 'shared/specification_fields', f: spec 
+        .links
+          = link_to_add_association image_tag('plus_sm.png'), f, :specifications, partial: 'shared/specification_fields', title: 'Add material'
+      hr
+      = f.submit

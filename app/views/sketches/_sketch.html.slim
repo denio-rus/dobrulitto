@@ -1,0 +1,12 @@
+tr.[class="sketch-#{sketch.id}"]
+  td= image_tag(sketch.picture, width: 150 ) if sketch.picture.attached?
+  td= sketch.title
+  td= sketch.description
+  td= sketch.height
+  td= sketch.width
+  td= sketch.date
+  td= used_materials_list(sketch)
+  td
+    .btn-group role="group"
+      = link_to "edit", edit_sketch_path(sketch), class: 'btn btn-success'
+      = link_to "delete", sketch, method: :delete, remote: true, class: 'btn btn-danger'

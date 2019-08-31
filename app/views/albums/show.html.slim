@@ -19,8 +19,16 @@
     .sketches
       h3 managing sketches:
 
-      table.table.table-sm
-        thead
+      table.table.table-sm.text-center
+        thead.table-dark
+          th image
+          th title
+          th description
+          th height
+          th width
+          th date
+          th used materials
+          th actions
         tbody
           =render @sketches, partial: 'sketches/sketch' if @sketches.any?
       
@@ -28,4 +36,4 @@
 
 
   .card-footer
-    = link_to  "back to the albums list", albums_path
+    = link_to  "back to the albums list", albums_path, class: 'btn btn-secondary'

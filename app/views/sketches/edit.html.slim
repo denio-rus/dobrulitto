@@ -1,0 +1,7 @@
+.card
+  .card-header.text-center
+    h3 Edit Sketch:
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Back to the album',album_path(sketch.album), class: 'btn btn-secondary'

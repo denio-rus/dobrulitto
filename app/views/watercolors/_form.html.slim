@@ -1,4 +1,5 @@
-= form_with model: watercolor, local: true do |f|
+= form_with model: watercolor do |f|
+  =render 'shared/errors', resource: watercolor
   .form-group
     p
       = f.label :title
@@ -17,9 +18,9 @@
       = f.label :width
       = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width", class: 'form-control'
       hr
-      =f.fields_for :specifications do |s|
-        =s.label :material_id, "material"
-        =s.collection_select :material_id, Material.all, :id, :title, prompt: true
+      =f.fields_for :specifications do |spec|
+        =render 'shared/specification_fields', f: spec
         .links
-        /  = link_to_add_association 'Add material', f, :links, partial: 'shared/link_fields'
+          = link_to_add_association image_tag('plus_sm.png'), f, :specifications, partial: 'shared/specification_fields', title: 'Add material'
+      hr
       = f.submit

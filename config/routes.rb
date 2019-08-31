@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   resources :watercolors
   resources :materials, except: [:show, :new, :edit]
   resources :albums do
-    resources :sketches, only: [:create, :update, :destroy, :new, :edit]
+    resources :sketches, only: [:create, :update, :destroy, :new, :edit], shallow: true
   end
 end
