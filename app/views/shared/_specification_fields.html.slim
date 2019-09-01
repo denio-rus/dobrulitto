@@ -4,4 +4,4 @@
     = f.collection_select :material_id, Material.all, :id, :title, prompt: true
     = f.label :_destroy, "delete"
     = f.check_box :_destroy
-  = link_to_remove_association "remove material", f
+  = link_to_remove_association image_tag('minus.png'), f, tite: "remove material"

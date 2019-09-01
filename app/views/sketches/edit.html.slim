@@ -1,6 +1,8 @@
 .card
   .card-header.text-center
-    h3 Edit Sketch:
+    h3 Edit sketch
+  .card-image-top
+    =image_tag sketch.picture, alt: "picture '#{sketch.title}'", width: 300
   .card-body
     = render 'form'
   .card-footer
