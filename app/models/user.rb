@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :timeoutable, :trackable
   
   def admin?
-    true
+    admin
   end
 end
