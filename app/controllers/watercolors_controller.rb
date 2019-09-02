@@ -13,8 +13,9 @@ class WatercolorsController < ApplicationController
     @watercolor = Watercolor.new(watercolor_params)
 
     if @watercolor.save
-      redirect_to @watercolor
+      redirect_to @watercolor, notice: 'Watercolor was created successfully!'
     else
+      flash.now[:alert] = 'Watercolor was NOT created!'
       render :new
     end
   end
@@ -23,8 +24,9 @@ class WatercolorsController < ApplicationController
 
   def update
     if watercolor.update(watercolor_params)
-      redirect_to watercolor
+      redirect_to watercolor, notice: 'Watercolor was updated successfully!'
     else
+      flash.now[:alert] = 'Watercolor was NOT updated!'
       render :edit
     end
   end

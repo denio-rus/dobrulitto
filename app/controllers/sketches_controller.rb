@@ -24,6 +24,7 @@ before_action :find_album, only: [:create, :new]
 
 
   def destroy
+    sketch.destroy
   end
 
   def new

@@ -1,26 +1,37 @@
-= form_with model: watercolor do |f|
+= form_with model: watercolor, local: true do |f|
   =render 'shared/errors', resource: watercolor
   .form-group
     p
-      = f.label :title
-      = f.text_field :title, id: :watercolor_title, placeholder: 'Input title', class: 'form-control'
+      .row
+        .col-sm-4
+          = f.label :title
+          = f.text_field :title, id: :watercolor_title, placeholder: 'Input title', class: 'form-control'
+        .col-sm-4  
+          = f.label :picture
+          = f.file_field :picture, id: :watercolor_picture, class: 'form-control'
+        .col-sm-4
+          = f.label :genre_id, 'Genre'
+          br
+          = f.collection_select :genre_id, Genre.all, :id, :title, prompt: true, class: '.btn btn-secondary dropdown-toggle'
+      
       = f.label :description
       = f.text_area :description, id: :watercolor_description, placeholder: 'Input description', cols: 100, rows: 5, class: 'form-control'
-      = f.label :picture
-      = f.file_field :picture, id: :watercolor_picture, class: 'form-control'
-      = f.label :genre_id, 'Genre'
-      = f.collection_select :genre_id, Genre.all, :id, :title, prompt: true
-      br
-      = f.label :year
-      = f.number_field :year, id: :watercolor_year, min: 2000, max: Time.now.year ,class: 'form-control'
-      = f.label :height
-      = f.number_field :height, id: :watercolor_height, min: 0, placeholder: "Enter height", class: 'form-control'
-      = f.label :width
-      = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width", class: 'form-control'
+
+      .row
+        .col-sm-4
+          = f.label :year
+          = f.number_field :year, id: :watercolor_year, min: 2000, max: Time.now.year ,class: 'form-control'
+        .col-sm-4
+          = f.label :height
+          = f.number_field :height, id: :watercolor_height, min: 0, placeholder: "Enter height", class: 'form-control'
+        .col-sm-4
+          = f.label :width
+          = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width", class: 'form-control'
       hr
       =f.fields_for :specifications do |spec|
         =render 'shared/specification_fields', f: spec
         .links
-          = link_to_add_association image_tag('plus_sm.png'), f, :specifications, partial: 'shared/specification_fields', title: 'Add material'
+          br
+          = link_to_add_association image_tag('plus.png'), f, :specifications, partial: 'shared/specification_fields', title: 'Add material'
       hr
       = f.submit class: 'btn btn-outline-info'
