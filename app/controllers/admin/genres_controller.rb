@@ -1,4 +1,4 @@
-class GenresController < ApplicationController
+class Admin::GenresController < Admin::BaseController
   before_action :find_genre, except: [:index, :create]
   before_action :set_genres
 
@@ -9,7 +9,7 @@ class GenresController < ApplicationController
   def create
     @genre = Genre.new(genre_params)
     if @genre.save
-      redirect_to genres_path, notice: "New genre '#{@genre.title}' was created"
+      redirect_to admin_genres_path, notice: "New genre '#{@genre.title}' was created"
     else 
       flash.now[:alert] = "Genre was NOT created. Got errors!"
       render :index
@@ -18,7 +18,7 @@ class GenresController < ApplicationController
 
   def update
     if @genre.update(genre_params)
-      redirect_to genres_path, notice: "Genre was updated"
+      redirect_to admin_genres_path, notice: "Genre was updated"
     else
       flash.now[:alert] = "Genre was NOT updated"
       render :index
@@ -27,7 +27,7 @@ class GenresController < ApplicationController
 
   def destroy
     @genre.destroy
-    redirect_to genres_path, alert: "Genre '#{@genre.title}' was deleted"
+    redirect_to admin_genres_path, alert: "Genre '#{@genre.title}' was deleted"
   end
 
   private

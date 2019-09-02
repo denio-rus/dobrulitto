@@ -1,5 +1,5 @@
-= form_with model: [@album, sketch], local: true do |f|
-  =render 'shared/errors', resource: sketch
+= form_with model: [:admin, @album, sketch], local: true do |f|
+  =render 'admin/shared/errors', resource: sketch
   .form-group
     p
       .row
@@ -20,9 +20,9 @@
       = f.label :picture
       = f.file_field :picture, id: :sketch_picture, class: 'form-control'
       = f.fields_for :specifications do |spec|
-        = render 'shared/specification_fields', f: spec 
+        = render 'admin/shared/specification_fields', f: spec 
         .links
           br
-          = link_to_add_association image_tag('plus.png'), f, :specifications, partial: 'shared/specification_fields', title: 'Add material'
+          = link_to_add_association image_tag('plus.png'), f, :specifications, partial: 'admin/shared/specification_fields', title: 'Add material'
       hr
       = f.submit class: 'btn btn-outline-info'

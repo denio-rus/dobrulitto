@@ -3,7 +3,7 @@
     .card-header.text-center
       h1 Materials
     .card-body
-      = render 'shared/errors', resource: @material
+      = render 'admin/shared/errors', resource: @material
       
       table.table.table-hover
         tbody
@@ -11,7 +11,7 @@
 
       hr
       .new-material
-        =form_with model: Material.new, local: true do |f|
+        =form_with model: [:admin, Material.new], local: true do |f|
           .input-group
             .input-group-prepend
               span.input-group-text id="inputGroup-sizing-default" a new material:

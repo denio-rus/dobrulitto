@@ -32,8 +32,8 @@
         tbody
           =render @sketches, partial: 'sketches/sketch' if @sketches.any?
       
-      p= link_to image_tag("plus_sm.png") , new_album_sketch_path(album), title: 'Add new sketch'
+      p= link_to image_tag("plus_sm.png") , new_admin_album_sketch_path(album), title: 'Add new sketch'
 
 
   .card-footer
-    = link_to  "back to the albums list", albums_path, class: 'btn btn-secondary'
+    = link_to  "back to the albums list", admin_albums_path, class: 'btn btn-secondary'

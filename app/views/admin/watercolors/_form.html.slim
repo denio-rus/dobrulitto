@@ -1,5 +1,5 @@
-= form_with model: watercolor, local: true do |f|
-  =render 'shared/errors', resource: watercolor
+= form_with model: [:admin, watercolor], local: true do |f|
+  =render 'admin/shared/errors', resource: watercolor
   .form-group
     p
       .row
@@ -29,9 +29,9 @@
           = f.number_field :width, id: :watercolor_width, min: 0, placeholder: "Enter width", class: 'form-control'
       hr
       =f.fields_for :specifications do |spec|
-        =render 'shared/specification_fields', f: spec
+        =render 'admin/shared/specification_fields', f: spec
         .links
           br
-          = link_to_add_association image_tag('plus.png'), f, :specifications, partial: 'shared/specification_fields', title: 'Add material'
+          = link_to_add_association image_tag('plus.png'), f, :specifications, partial: 'admin/shared/specification_fields', title: 'Add material'
       hr
       = f.submit class: 'btn btn-outline-info'

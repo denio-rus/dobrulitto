@@ -8,5 +8,5 @@ tr.[class="sketch-#{sketch.id}"]
   td= used_materials_list(sketch)
   td
     .btn-group role="group"
-      = link_to "edit", edit_sketch_path(sketch), class: 'btn btn-outline-success'
-      = link_to "delete", sketch, method: :delete, remote: true, class: 'btn btn-outline-danger'
+      = link_to "edit", edit_admin_sketch_path(sketch), class: 'btn btn-outline-success'
+      = link_to "delete", admin_sketch_path(sketch), method: :delete, remote: true, class: 'btn btn-outline-danger'

@@ -21,5 +21,7 @@
         = used_materials_list(watercolor)
   .card-footer
     .btn-group role="group"
-      = link_to 'Back to index', watercolors_path, class: 'btn btn-outline-secondary'
+      = link_to 'Back to index', admin_watercolors_path, class: 'btn btn-outline-secondary'
+      = link_to "Edit watercolor info", edit_admin_watercolor_path(watercolor), class: 'btn btn-outline-success'
+      = link_to 'Delete this watercolor', admin_watercolor_path(watercolor), method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure?' }
       

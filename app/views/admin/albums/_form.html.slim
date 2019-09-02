@@ -1,5 +1,5 @@
-= render 'shared/errors', resource: album
-= form_with model: album, local: true  do |f|
+= render 'admin/shared/errors', resource: album
+= form_with model: [:admin, album], local: true  do |f|
   .row
     .col-sm-4
       = f.label :title

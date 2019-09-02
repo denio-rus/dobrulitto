@@ -5,7 +5,7 @@
 
     .card-body
       .errors
-        p= render 'shared/errors', resource: @genre
+        p= render 'admin/shared/errors', resource: @genre
 
       table.table.table-hover
         = render @genres
@@ -13,7 +13,7 @@
       hr
 
       .new-genre
-        =form_with model: Genre.new, method: :post, local: true do |f|
+        =form_with model: [:admin, Genre.new], method: :post, local: true do |f|
           .input-group
             .input-group-prepend
               span.input-group-text id="inputGroup-sizing-default" a new genre:
