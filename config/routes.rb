@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   root to: "watercolors#index"
   
   resources :genres, only: [:index, :create, :update, :destroy]
