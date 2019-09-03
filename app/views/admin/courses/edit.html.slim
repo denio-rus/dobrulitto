@@ -1,0 +1,8 @@
+.card
+  .card-header
+    h1 Edit course "#{course.title}"
+  .card-body
+    =render 'form'
+
+  .card-footer
+    = link_to  "back to the courses list", admin_courses_path, class: 'btn btn-secondary'

@@ -1,0 +1,39 @@
+.card
+  .card-header
+    h1 course "#{course.title}"
+  .card-body
+    .course-info
+      p
+        strong
+          | discipline:  
+        = course.discipline.title
+      p
+        strong
+          | description:  
+        = course.description
+      p 
+        strong
+          | created at:  
+        = course.created_at
+      p 
+        strong
+          | updated at:   
+        = course.updated_at
+    hr
+    .lessons
+      h3 managing lessons:
+
+      table.table.table-sm.text-center
+        thead.table-dark
+          th preview
+          th title
+          th description
+          th actions
+        tbody
+          =render @lessons, partial: 'lessons/lesson' if @lessons.any?
+      
+      p= link_to image_tag("plus_sm.png") , new_admin_course_lesson_path(course), title: 'Add new lesson'
+
+
+  .card-footer
+    = link_to  "back to the courses list", admin_courses_path, class: 'btn btn-secondary'

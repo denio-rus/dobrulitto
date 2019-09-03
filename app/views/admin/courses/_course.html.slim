@@ -1,0 +1,10 @@
+tr.[class="course-#{course.id}"]
+  td= course.title
+  td= course.discipline.title
+  td= course.created_at
+  td= course.updated_at
+  td  
+    .btn-group role="group"
+      = link_to 'managing lessons', admin_course_path(course), class: "btn btn-outline-primary" 
+      = link_to  'edit', edit_admin_course_path(course), class: "btn btn-outline-success"
+      = link_to 'delete', admin_course_path(course), method: :delete, class: "btn btn-outline-danger", remote: true, data: { confirm: 'Are you sure?' }

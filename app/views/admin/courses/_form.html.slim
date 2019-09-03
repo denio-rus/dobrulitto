@@ -1,0 +1,12 @@
+= render 'admin/shared/errors', resource: course
+= form_with model: [:admin, course], local: true  do |f|
+
+  = f.label :discipline_id, 'Discipline'
+  br
+  = f.collection_select :discipline_id, Discipline.all, :id, :title, prompt: true, class: '.btn btn-secondary dropdown-toggle'
+  = f.label :title
+  = f.text_field :title, class: 'form-control'
+  = f.label :description
+  = f.text_area :description, rows: 5, class: 'form-control'
+  br
+  = f.submit class: 'btn btn-outline-info'

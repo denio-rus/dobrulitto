@@ -1,0 +1,17 @@
+.card
+  .card-header.text-center
+    h1 courses
+  .card-body
+    table.table.table-striped.table-sm.text-center
+      thead.table-dark
+        tr
+          th title
+          th discipline
+          th created at
+          th last update at
+          th actions
+      .tbody
+        = render @courses
+
+    .new-course
+      h3= link_to image_tag('plus_sm.png'), new_admin_course_path, title: "Add new course"
