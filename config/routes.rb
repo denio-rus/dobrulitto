@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :genres, only: [:index, :create, :update, :destroy]
+    resources :disciplines, only: [:index, :create, :update, :destroy]
     resources :watercolors
     resources :materials, except: [:show, :new, :edit]
     resources :albums do

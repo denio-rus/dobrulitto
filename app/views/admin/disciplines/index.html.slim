@@ -1,0 +1,21 @@
+.row.justify-content-center
+  .card.col-sm-8
+    .card-header.text-center
+      h1 Disciplines of courses
+
+    .card-body
+      .errors
+        p= render 'admin/shared/errors', resource: @discipline
+
+      table.table.table-hover
+        = render @disciplines
+
+      hr
+
+      .new-discipline
+        =form_with model: [:admin, Discipline.new], method: :post, local: true do |f|
+          .input-group
+            .input-group-prepend
+              span.input-group-text id="inputGroup-sizing-default" a new discipline:
+            =f.text_field :title, class: 'form-control'
+            =f.submit 'add', class: 'btn btn-outline-primary', role: 'button'
