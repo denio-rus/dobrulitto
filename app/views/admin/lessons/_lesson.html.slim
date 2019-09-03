@@ -1,0 +1,8 @@
+tr.[class="lesson-#{lesson.id}"]
+  td= image_tag(lesson.preview, width: 150 ) if lesson.preview.attached?
+  td= lesson.title
+  td= lesson.description
+  td
+    .btn-group role="group"
+      = link_to "edit", edit_admin_lesson_path(lesson), class: 'btn btn-outline-success'
+      = link_to "delete", admin_lesson_path(lesson), method: :delete, remote: true, class: 'btn btn-outline-danger'

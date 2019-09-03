@@ -3,4 +3,6 @@ class Lesson < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
   validates :title, :description, presence: true
+
+  has_one_attached :preview
 end

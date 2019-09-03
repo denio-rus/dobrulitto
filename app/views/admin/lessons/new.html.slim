@@ -1,0 +1,7 @@
+.card
+  .card-header.text-center
+    h3 Add new lesson
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Back to the course', admin_course_path(lesson.course), class: 'btn btn-secondary'

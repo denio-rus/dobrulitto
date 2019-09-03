@@ -41,7 +41,7 @@ before_action :find_album, only: [:create, :new]
   helper_method :sketch
 
   def sketch_params
-    params.require(:sketch).permit(:title, :description, :date, :height, :width, :materials, :picture,
+    params.require(:sketch).permit(:title, :description, :date, :height, :width, :picture,
                                     specifications_attributes: [:id, :material_id, :_destroy])
   end
 

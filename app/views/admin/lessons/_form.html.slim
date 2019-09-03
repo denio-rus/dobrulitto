@@ -1,0 +1,15 @@
+= form_with model: [:admin, @course, lesson], local: true do |f|
+  =render 'admin/shared/errors', resource: lesson
+  .form-group
+    p
+      .row
+        .col-sm-6
+          = f.label :title
+          = f.text_field :title, id: :lesson_title, placeholder: 'Input title', class: 'form-control'
+        .col-sm-6
+          = f.label :preview
+          = f.file_field :preview, id: :lesson_preview, class: 'form-control'
+      = f.label :description
+      = f.text_area :description, id: :lesson_description, placeholder: 'Input description', cols: 100, rows: 5, class: 'form-control'
+      br
+      = f.submit class: 'btn btn-outline-info'

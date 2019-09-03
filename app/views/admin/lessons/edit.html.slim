@@ -1,0 +1,9 @@
+.card
+  .card-header.text-center
+    h3 Edit lesson
+  .card-image-top
+    =image_tag lesson.preview, alt: "preview '#{lesson.title}'", width: 300
+  .card-body
+    = render 'form'
+  .card-footer
+    = link_to 'Back to the course',admin_course_path(lesson.course), class: 'btn btn-secondary'
