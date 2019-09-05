@@ -1,0 +1,11 @@
+= form_with model: [:admin, post], local: true do |f| 
+  .field
+    = f.label :title 
+    = f.text_field :title, class: 'form-control'
+  .field
+    = f.label :content_ru 
+    = f.text_area :content_ru, 'data-provider': :summernote, placeholder: 'Input Russian version here'
+  .field
+    = f.label :content_en 
+    = f.text_area :content_en, 'data-provider': :summernote, placeholder: 'Input English version here'
+  =f.submit class: 'btn btn-outline-info'

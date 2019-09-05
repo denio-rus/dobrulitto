@@ -16,6 +16,9 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require summernote/summernote-bs4.min
+//= require summernote-init
+//= require activestorage
 //= require_tree ../../../vendor/assets/javascripts
 //= require cocoon
 //= require_tree .

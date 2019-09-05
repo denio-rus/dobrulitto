@@ -14,6 +14,10 @@ Rails.application.routes.draw do
     
     resources :watercolors
     
+    resources :posts do
+      resources :comments, shallow: true
+    end
+
     resources :courses do
       resources :lessons, only: [:create, :update, :destroy, :new, :edit], shallow: true
     end

@@ -1,0 +1,16 @@
+.card
+  .card-header.text-center
+    h1 Diary posts
+  .card-body
+    table.table.table-striped.table-sm.text-center
+      thead.table-dark
+        tr
+          th title
+          th created at
+          th updated at
+          th actions
+      .tbody
+        = render @posts
+
+    .new-post
+      h3= link_to image_tag('plus_sm.png'), new_admin_post_path, title: "Add new post"

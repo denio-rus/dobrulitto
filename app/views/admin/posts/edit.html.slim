@@ -1,0 +1,8 @@
+.card
+  .card-header
+    h1 Edit post "#{post.title}"
+  .card-body
+    =render 'form'
+
+  .card-footer
+    = link_to  "back to the posts list", admin_posts_path, class: 'btn btn-secondary'

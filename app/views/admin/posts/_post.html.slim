@@ -1,0 +1,9 @@
+tr.[class="post-#{post.id}"]
+  td= link_to  post.title, admin_post_path(post)
+  td= post.created_at
+  td= post.updated_at
+  td  
+    .btn-group role="group"
+      = link_to  'show', admin_post_path(post), class: "btn btn-outline-primary"
+      = link_to  'edit', edit_admin_post_path(post), class: "btn btn-outline-success"
+      = link_to 'delete', admin_post_path(post), method: :delete, class: "btn btn-outline-danger", remote: true, data: { confirm: 'Are you sure?' }

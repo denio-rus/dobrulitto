@@ -17,8 +17,11 @@ gem 'redis', '~> 4.0'
 
 gem 'jquery-rails'
 gem 'bootstrap', '~> 4.3'
+gem 'simple_form'
+gem 'summernote-rails', '~> 0.8.12.0'
 gem 'slim'
 gem 'cocoon'
+
 gem 'devise'
 gem 'omniauth'
 # Use ActiveStorage variant

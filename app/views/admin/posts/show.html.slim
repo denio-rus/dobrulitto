@@ -1,0 +1,31 @@
+.card
+  .card-header
+    h1 post "#{post.title}"
+  .card-body
+    .post-info
+      p
+        strong
+          | created at:  
+        = post.created_at
+      p 
+        strong
+          | updated at:   
+        = post.updated_at
+    
+    .card.post-content-ru
+      .card-header
+        h3 Russian version
+      .card-body  
+        p== post.content_ru
+    
+    .card.post-content-en
+      .card-header
+        h3 English version
+      .card-body  
+        p== post.content_en
+
+  .card-footer
+    .btn-group role="group"
+      = link_to  "back to the posts list", admin_posts_path, class: 'btn btn-outline-secondary'
+      = link_to "Edit post info", edit_admin_post_path(post), class: 'btn btn-outline-success'
+      = link_to 'Delete this post', admin_post_path(post), method: :delete, class: 'btn btn-outline-danger', data: { confirm: 'Are you sure?' }

@@ -8,14 +8,12 @@ div class="container sticky-top bg-white"
     li class="nav-item"
       a class="nav-link" href="#{admin_watercolors_path}" Watercolors
 
-    li class="nav-item"
-      a class="nav-link" href="#{admin_genres_path}" Genres
-
-    li class="nav-item"
-      a class="nav-link" href="#{admin_materials_path}" Materials
-
-    li class="nav-item"
-      a class="nav-link" href="#{admin_disciplines_path}" Disciplines
+    li class="nav-item dropdown"
+      a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" Settings
+      div class="dropdown-menu"
+        a class="dropdown-item" href="#{admin_genres_path}" Genres
+        a class="dropdown-item" href="#{admin_materials_path}" Materials
+        a class="dropdown-item" href="#{admin_disciplines_path}" Disciplines
 
     li class="nav-item"
       a class="nav-link" href="#{admin_albums_path}" Sketching
@@ -24,7 +22,7 @@ div class="container sticky-top bg-white"
       a class="nav-link" href="#{admin_courses_path}" Lessons
 
     li class="nav-item"
-      a class="nav-link" href="#" Diary
+      a class="nav-link" href="#{admin_posts_path}" Diary
 
     li class="nav-item"
       a class="nav-link" href="#" Contacts
