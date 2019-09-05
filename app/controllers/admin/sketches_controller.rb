@@ -15,12 +15,13 @@ before_action :find_album, only: [:create, :new]
     if sketch.update(sketch_params)
       redirect_to admin_album_path(sketch.album)
     else
-      @album = sketch.album
       render :edit
     end
   end
 
-  def edit; end
+  def edit
+    sketch.specifications.new
+  end
 
 
   def destroy

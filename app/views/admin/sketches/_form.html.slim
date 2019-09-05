@@ -19,6 +19,7 @@
       = f.text_area :description, id: :sketch_description, placeholder: 'Input description', cols: 100, rows: 5, class: 'form-control'
       = f.label :picture
       = f.file_field :picture, id: :sketch_picture, class: 'form-control'
+      hr  
       = f.fields_for :specifications do |spec|
         = render 'admin/shared/specification_fields', f: spec 
         .links
