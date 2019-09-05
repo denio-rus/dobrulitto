@@ -3,29 +3,35 @@ div class="container"
     a class="navbar-brand" href="/"
       =image_tag 'logo.svg', alt: "dobrulitto logo", height: 100
 
-div class="container sticky-top bg-white"
-  ul class="nav justify-content-center"
-    li class="nav-item"
-      a class="nav-link" href="#{admin_watercolors_path}" Watercolors
+  nav class="navbar navbar-expand-lg navbar-light bg-white"
+    a class="navbar-brand" href="#"
+    button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"
+      span class="navbar-toggler-icon"
+    
+    div class="collapse navbar-collapse" id="navbarToggler"
+      div class="container sticky-top bg-white"
+        ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-center"
+          li class="nav-item"
+            a class="nav-link" href="#{admin_posts_path}" Diary
+            
+          li class="nav-item"
+            a class="nav-link" href="#{admin_watercolors_path}" Watercolors
 
-    li class="nav-item dropdown"
-      a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" Settings
-      div class="dropdown-menu"
-        a class="dropdown-item" href="#{admin_genres_path}" Genres
-        a class="dropdown-item" href="#{admin_materials_path}" Materials
-        a class="dropdown-item" href="#{admin_disciplines_path}" Disciplines
+          li class="nav-item"
+            a class="nav-link" href="#{admin_albums_path}" Sketching
 
-    li class="nav-item"
-      a class="nav-link" href="#{admin_albums_path}" Sketching
+          li class="nav-item"
+            a class="nav-link" href="#{admin_courses_path}" Lessons
 
-    li class="nav-item"
-      a class="nav-link" href="#{admin_courses_path}" Lessons
+          li class="nav-item"
+            a class="nav-link" href="#" Contacts
 
-    li class="nav-item"
-      a class="nav-link" href="#{admin_posts_path}" Diary
+          li class="nav-item"
+            a class="nav-link" href="#" Shop
 
-    li class="nav-item"
-      a class="nav-link" href="#" Contacts
-
-    li class="nav-item"
-      a class="nav-link" href="#" Shop
+          li class="nav-item dropdown"
+            a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" Settings
+            div class="dropdown-menu"
+              a class="dropdown-item" href="#{admin_genres_path}" Genres
+              a class="dropdown-item" href="#{admin_materials_path}" Materials
+              a class="dropdown-item" href="#{admin_disciplines_path}" Disciplines
