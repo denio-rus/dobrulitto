@@ -3,6 +3,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :confirmable, :omniauthable, :lockable,
          :timeoutable, :trackable
+
+  has_many :comments, dependent: :nullify
   
   def admin?
     admin
