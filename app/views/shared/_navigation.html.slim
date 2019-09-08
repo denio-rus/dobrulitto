@@ -23,6 +23,6 @@ div class="container sticky-top bg-white"
     li class="nav-item"
       a class="nav-link" href="#" Shop
     
-    - if current_user.admin?
+    - if current_user&.admin?
       li class="nav-item"
         a class="nav-link" href="#{admin_watercolors_path}" Admin Mode
