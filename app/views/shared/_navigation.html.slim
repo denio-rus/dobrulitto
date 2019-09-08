@@ -3,26 +3,32 @@ div class="container"
     a class="navbar-brand" href="/"
       =image_tag 'logo.svg', alt: "dobrulitto logo", height: 100
 
-div class="container sticky-top bg-white"
-  ul class="nav justify-content-center"
-    li class="nav-item"
-      a class="nav-link" href="#{watercolors_path}" Watercolors
-
-    li class="nav-item"
-      a class="nav-link" href="#{albums_path}" Sketching
-
-    li class="nav-item"
-      a class="nav-link" href="#" Lessons
-
-    li class="nav-item"
-      a class="nav-link" href="#{posts_path}" Diary
-
-    li class="nav-item"
-      a class="nav-link" href="#" Contacts
-
-    li class="nav-item"
-      a class="nav-link" href="#" Shop
+  nav class="navbar navbar-expand-lg navbar-light bg-white"
+    a class="navbar-brand" href="#"
+    button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation"
+      span class="navbar-toggler-icon"
     
-    - if current_user&.admin?
-      li class="nav-item"
-        a class="nav-link" href="#{admin_watercolors_path}" Admin Mode
+    div class="collapse navbar-collapse" id="navbarToggler"
+      div class="container sticky-top bg-white"
+        ul class="navbar-nav mr-auto mt-2 mt-lg-0 justify-content-center"
+          li class="nav-item"
+            a class="nav-link" href="#{watercolors_path}" Watercolors
+
+          li class="nav-item"
+            a class="nav-link" href="#{albums_path}" Sketching
+
+          li class="nav-item"
+            a class="nav-link" href="#" Lessons
+
+          li class="nav-item"
+            a class="nav-link" href="#{posts_path}" Diary
+
+          li class="nav-item"
+            a class="nav-link" href="#" Contacts
+
+          li class="nav-item"
+            a class="nav-link" href="#" Shop
+          
+          - if current_user&.admin?
+            li class="nav-item"
+              a class="nav-link" href="#{admin_watercolors_path}" Admin Mode
