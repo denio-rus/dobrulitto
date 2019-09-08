@@ -3,9 +3,8 @@
   .card-columns
     - @watercolors.each do |watercolor|
         .card.border-grey.mt-2
-          .card-body
-            .card-image-top
-              =link_to image_tag(watercolor.picture, class: 'img-fluid'), watercolor
+          .card-image-top
+            =link_to image_tag(watercolor.picture, class: 'img-fluid'), watercolor
 
 
 
