@@ -7,6 +7,10 @@ Rails.application.routes.draw do
     resources :sketches, only: :show, shallow: true
   end
 
+  resources :posts, only: [:index, :show] do
+    resources :comments, only: [:create, :update, :destroy], shallow: true
+  end
+
   namespace :admin do
     resources :genres, only: [:index, :create, :update, :destroy]
     resources :disciplines, only: [:index, :create, :update, :destroy]
