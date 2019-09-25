@@ -1,12 +1,12 @@
-div class="container-fluid"
-  p.text-right
+.container-fluid.text-right
+  p
     - if current_user
-      = link_to "Sign out", destroy_user_session_path, method: :delete
+      = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary mt-1 mr-1 md-0'
 
-div class="container"
-  div class="navbar justify-content-center"
-    a class="navbar-brand" href="/"
-      =image_tag 'logo.svg', alt: "dobrulitto logo", height: 100
+  div class="container"
+    div class="navbar justify-content-center"
+      a class="navbar-brand" href="/"
+        =image_tag 'logo.svg', alt: "dobrulitto logo", height: 100
 
   nav class="navbar navbar-expand-lg navbar-light bg-white"
     a class="navbar-brand" href="#"

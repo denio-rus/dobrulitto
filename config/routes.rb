@@ -16,7 +16,9 @@ Rails.application.routes.draw do
     resources :disciplines, only: [:index, :create, :update, :destroy]
     resources :materials, except: [:show, :new, :edit]
     
-    resources :watercolors
+    resources :watercolors do
+      post :sort, on: :collection
+    end
     
     resources :posts do
       resources :comments, shallow: true

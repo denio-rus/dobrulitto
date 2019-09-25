@@ -1,0 +1,21 @@
+                  List of relations
+ Schema |            Name            | Type  | Owner 
+--------+----------------------------+-------+-------
+ public | active_storage_attachments | table | denio
+ public | active_storage_blobs       | table | denio
+ public | albums                     | table | denio
+ public | ar_internal_metadata       | table | denio
+ public | comments                   | table | denio
+ public | courses                    | table | denio
+ public | disciplines                | table | denio
+ public | genres                     | table | denio
+ public | lessons                    | table | denio
+ public | materials                  | table | denio
+ public | posts                      | table | denio
+ public | schema_migrations          | table | denio
+ public | sketches                   | table | denio
+ public | specifications             | table | denio
+ public | users                      | table | denio
+ public | watercolors                | table | denio
+(16 rows)
+

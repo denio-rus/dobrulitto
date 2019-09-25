@@ -1,12 +1,11 @@
 
-div class="container-fluid"
-  p.text-right
-    - if current_user
-      = link_to "Sign out", destroy_user_session_path, method: :delete
-    - else
-      = link_to "Sign in", new_user_session_path
-      |  |  
-      = link_to "Sign up", new_user_registration_path
+div class="container-fluid text-right "
+  - if current_user
+    = link_to "Sign out", destroy_user_session_path, method: :delete, class: 'btn btn-outline-secondary mt-1 mr-1 md-0'
+  - else
+    .btn-group.mt-1.mr-1 role="group"
+      = link_to "Sign in", new_user_session_path, class: 'btn btn-outline-secondary '
+      = link_to "Sign up", new_user_registration_path, class: 'btn btn-outline-secondary'
   div class="navbar justify-content-center"
     a class="navbar-brand" href="/"
       =image_tag 'logo.svg', alt: "dobrulitto logo", height: 100

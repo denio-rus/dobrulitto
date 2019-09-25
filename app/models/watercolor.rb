@@ -8,4 +8,6 @@ class Watercolor < ApplicationRecord
   has_one_attached :picture
 
   accepts_nested_attributes_for :specifications, reject_if: :all_blank, allow_destroy: true
+
+  acts_as_list
 end

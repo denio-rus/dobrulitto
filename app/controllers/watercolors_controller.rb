@@ -1,6 +1,6 @@
 class WatercolorsController < ApplicationController
   def index
-    @watercolors = Watercolor.all
+    @watercolors = Watercolor.all.order(:position)
   end
 
   def show; end

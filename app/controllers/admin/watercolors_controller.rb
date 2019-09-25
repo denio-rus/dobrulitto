@@ -36,6 +36,14 @@ class Admin::WatercolorsController < Admin::BaseController
     redirect_to admin_watercolors_path
   end
 
+  def sort
+    params[:watercolor].each_with_index do |id, index| 
+      Watercolor.find(id).update(position: index + 1)
+    end
+    
+    head :ok
+  end
+
   private
 
   def watercolor
